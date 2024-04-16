@@ -1,12 +1,15 @@
 import { onValue, ref } from 'firebase/database'
-import firebase from "../firebase.js"
+import firebase from '../firebase.js'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import "../styles/user.css"
+
 function Tasks() {
     const [taskList, setTaskList] = useState([])
     const [userData, setUserData] = useState([])
     const Navigate = useNavigate()
+    const API = "https://backofficebackend.onrender.com"
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
@@ -27,7 +30,7 @@ function Tasks() {
             }
         })
 
-        axios.get("http://localhost:8000/api/users").then((res) => {
+        axios.get(API+"/api/users").then((res) => {
             setUserData(res.data)
         }).catch((err) => {
             console.log(err)
@@ -49,10 +52,10 @@ function Tasks() {
                         for (let i in item.data) {
                             data.push(item.data[i])
                         }
+
                         let filterData = {
                             length: data.length,
                             id: item.id,
-                            status: data[0].status,
                         }
                         userData.map((user) => {
                             if (user.uid === item.id) {
@@ -60,15 +63,15 @@ function Tasks() {
                                 else filterData.email = user.email
                                 if (filterData.hasOwnProperty("createdAt")) return
                                 else filterData.createdAt = user.metadata.creationTime
+                                
                             }
                         })
                         return (
                             data.map((todo , index) => {
-                                    console.log(todo)
                                 return <tr key={index}>
                                     <td>{todo.title}</td>
                                     <td>{todo.discription}</td>
-                                    <td>{filterData.status}</td>
+                                    <td>{todo.status}</td>
                                     <td>{filterData.email}</td>
                                 </tr>
                             })

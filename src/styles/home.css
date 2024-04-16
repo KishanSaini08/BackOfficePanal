@@ -1,10 +1,18 @@
-.home {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+
+   .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
   }
   
-  .buttons {
+  #email {
+    margin-bottom: 20px;
+  }
+  
+  
+  
+.buttons {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -19,23 +27,8 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
-  .buttons button:hover {
-    background-color: #0056b3;
-  }
-  
+
+
   #signOut {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    margin-bottom: 20px;
   }
-  
-  #signOut:hover {
-    background-color: #c82333;
-  }
-  

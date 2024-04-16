@@ -1,27 +1,3 @@
-// import React from 'react'
-// import {Link} from "react-router-dom"
-
-// const Home = () => {
-//   return (
-//     <>
-//     <div className="container">
-//         <h1>Menu items</h1>
-//         <div className="menu">
-//         <ul>
-//             <li><Link to="/users">Users</Link></li>
-//             <li><Link to="/task-list">Task list</Link></li>
-//             <li><Link to="/tasks">Tasks</Link></li>
-//           </ul>
-            
-//         </div>
-//     </div>
-//     </>
-//   )
-// }
-
-// export default Home
-
-
 
 import React, { useEffect, useState } from 'react'
 import firebase from '../firebase.js'
@@ -53,6 +29,9 @@ function Home() {
       if (user) {
         setCurrentUser(firebase.auth().currentUser)
       }
+      if(!user){
+        Navigate("/login")
+      }
     })
   })
 
@@ -80,3 +59,5 @@ function Home() {
 }
 
 export default Home
+
+

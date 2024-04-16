@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import firebase from '../firebase.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "../styles/login.css"
 
 
 const Login = () => {
