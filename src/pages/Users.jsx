@@ -63,7 +63,7 @@ import '../styles/user.css';
 function User(user) {
     const [userData, setUserData] = useState([]);
     const [currentUser, setCurrentUser] = useState('');
-    const API = 'https://backofficebackend.onrender.com';
+    const API = 'https://backofficebackend-1.onrender.com';
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
